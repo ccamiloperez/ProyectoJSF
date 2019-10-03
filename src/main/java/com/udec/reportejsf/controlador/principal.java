@@ -15,12 +15,15 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author ASUS
+ * @author Camilo Perez
+ * @author Julian Arias
  */
 @Named(value = "principal")
 @RequestScoped
 public class principal {
-    
+    /**
+     * Variables donde se almacena lo que digite el usuario
+     */
     private String nombre;
     private String apellido;
     private String profesion;
@@ -29,10 +32,16 @@ public class principal {
     private String ubicacion;
     private int dias;
     private double salario;
-
+    /**
+    * Costructor de la clase
+    */
     public principal() {
         
     }
+    /**
+     * Getters y Setters de las variables
+     * @return 
+     */
     public double getSalario() {
         return salario;
     }
