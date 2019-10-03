@@ -16,17 +16,28 @@ import javax.inject.Inject;
 
 /**
  *
- * @author ASUS
+ * @author Camilo Perez
+ * @author Julian Arias
  */
 @Named(value = "reporte")
 @RequestScoped
 public class reporte {
 
+    logica log=new logica();
+    /**
+     * Inyeccion de dependencia
+     */
     @Inject
     private principal principal;
-    
+    /**
+     * Costructor de la clase
+     */
     public reporte() {
     }
+    /**
+     * Getters y Setters de la varible principal
+     * @return 
+     */
     public principal getPrincipal() {
         return principal;
     }
@@ -34,12 +45,20 @@ public class reporte {
     public void setPrincipal(principal principal) {
         this.principal = principal;
     }
-    
+    /**
+     * Metodo que llama la funcion de calcular el sueldo
+     * @return el sueldo total
+     */
     public double ejecutar(){
-        logica log=new logica();
+        
         principal.setSalario(log.calcularCuentaCobro(principal.getDias(), principal.getProfesion(), principal.getIdiomas() ));
         return principal.getSalario();
     }
+    /**
+     * Metodo que imprime los idiomas 
+     * @param idioma
+     * @return los idiomas seleccionados 
+     */
     public String imprimirIdiomas(String [] idioma){
        String idiomas="";
        for(String a:idioma){
@@ -49,16 +68,14 @@ public class reporte {
        }
     return idiomas;
     }
-    
-    public String tipoGenero(String genero){
-        String ger;
-        if(genero.equals("mujer")){
-            ger = "Señora";
+    /**
+     * Metodo que llama la funcion que imprime el genero
+     * @return el genero seleccionado
+     */
+   public String imprimirGenero(){
+       principal.setGenero(log.tipoGenero(principal.getGenero()));
+       return principal.getGenero();
+   }
            
-        }else{
-            ger="Señor";
-        }
-    return ger;
-    }
     
 }
