@@ -6,6 +6,7 @@
         <title>Reporte</title>
     </h:head>
     <h:body>
+        <h:panelGroup layout="block" style="display:block; margin-left:30%; width:40%;  text-align:center; margin-top:10%;font-size:20px; border:solid black;">
         <h:outputText value="#{reporte.imprimirGenero()} #{reporte.principal.nombre} #{reporte.principal.apellido}"/>
         <br></br>
         <h:outputText value="Por su profesión #{reporte.principal.profesion}"/>
@@ -17,7 +18,7 @@
          <h:outputText value="Y los dias trabajados #{reporte.principal.dias}"/>
           <br></br>
           <h:outputText value="Su cuenta de cobro es  #{reporte.ejecutar()}"/>
-        
+          </h:panelGroup>
         
     </h:body>
 </html>
